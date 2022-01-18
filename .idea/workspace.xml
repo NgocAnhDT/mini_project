@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74f2b890-c480-44d1-b938-1a9c7db680a7" name="Default Changelist" comment="" />
+    <list default="true" id="74f2b890-c480-44d1-b938-1a9c7db680a7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/common/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/common/db.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +15,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="609ce1f6-6641-4e74-aebc-d2c0c1319951" />
+        <option name="url" value="https://github.com/NgocAnhDT/mini_project.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectId" id="23sL7Hgi6Ww4D1Ubgo6IYmJpRZx" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -34,11 +45,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642517679226</updated>
-      <workItem from="1642517680713" duration="602000" />
+      <workItem from="1642517680713" duration="1121000" />
+      <workItem from="1642520158080" duration="30000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
