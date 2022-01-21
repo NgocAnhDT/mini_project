@@ -12,7 +12,7 @@ body {
 }
 .form__box {
     margin: 50px auto;
-    /*position: absolute;*/
+    position: relative;
     width: 800px;
     height: 500px;
     background: #fff;
@@ -45,11 +45,10 @@ body {
     transform: translate(-50%, -50%);
 }
 .form__right {
-    line-height: 26px;
     width: 50%;
 }
 .form__padding-right {
-    padding: 0 25px;
+    padding-right: 30px;
 }
 .form__title {
     font-size: 24px;
@@ -83,6 +82,17 @@ input[type='password']{
     padding: 7px 40px;
     background: #f2f2f2;
 }
+
+input[type='text']:focus,
+input[type='password']:focus {
+    outline: none;
+    border: 1.5px solid #dedddd;
+}
+
+.form__remember {
+    margin-bottom: 20px;
+}
+
 input[type='submit'] {
     background: #22e34b;
     text-transform: uppercase;
@@ -91,13 +101,6 @@ input[type='submit'] {
 }
 input[type='submit']:hover {
     background: #ff3f70;
-}
-.form__remember {
-    display: inline-block;
-}
-
-input[type='checkbox'] {
-    margin-right: 8px;
 }
 
 input:after {
