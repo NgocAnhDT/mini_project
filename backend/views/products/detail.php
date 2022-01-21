@@ -1,11 +1,13 @@
-
-
 <div class="container-fluid">
     <h2>Thông tin sản phẩm</h2>
-    <?php if($this->error != ''): ?>
+    <?php if(!empty($this->error)): ?>
         <div class="noti-error">
             <p>
-                <?php echo $this->error; ?>
+                <?php
+                foreach($this->error as $e){
+                    echo $e ."<br>" ;
+                }
+                ?>
             </p>
         </div>
     <?php endif; ?>

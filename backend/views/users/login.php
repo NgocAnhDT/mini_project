@@ -21,19 +21,26 @@
                     <p class="form__title">Member Login</p>
                     <div class="form__group">
                         <label><i class="login_icon fas fa-user"></i></label>
-                        <input type="text" name="username" value="<?php if(isset($_COOKIE["username"])) { echo $_COOKIE["username"]; }?>" placeholder="Username"/>
+                        <input type="text" name="username" placeholder="Username"
+                               value="<?php
+                                            echo isset($_POST['username']) ? $_POST['username']:'';
+                                            echo isset($_COOKIE['username']) ? $_COOKIE['username']:''; ?>"/>
                     </div>
                     <div class="form__group">
                         <label><i class="login_icon fas fa-lock"></i></label>
-                        <input type="password" name="password" value="<?php if(isset($_COOKIE["password"])) { echo $_COOKIE["password"]; }?>" placeholder="Password"/>
+                        <input type="password" name="password" placeholder="Password"
+                               value="<?php echo isset($_POST['password']) ? $_POST['password']:'';
+                                            echo isset($_COOKIE['password']) ? $_COOKIE['password']:''; ?>"/>
                     </div>
-
-                    <input type="submit" name="btn_login" value="Login"/>
                     <!--CheckBox-->
                     <div class="form__remember">
                         <input type="checkbox" name="remember">
-                        <span>Remember me</span>
+                        <span class="check_mark">Remember me</span>
                     </div>
+
+                    <input type="submit" name="btn_login" value="Login"/>
+
+
                 </form>
                 <p> <a class="form__link" href="#">Create your account</a></p>
             </div>

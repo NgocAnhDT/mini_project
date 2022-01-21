@@ -302,6 +302,7 @@ input[name="color"] + label[for]{
   border: 1px solid red;
   height: 40px;
   border-radius: 5px;
+  padding: 8px;
 }
 .noti-error p {
   line-height: 35px;
@@ -331,5 +332,3 @@ td[class*='label'] {
 .img img.img-rounded {
   width: 150px;
 }
-
-
