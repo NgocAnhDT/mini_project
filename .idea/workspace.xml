@@ -1,54 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="74f2b890-c480-44d1-b938-1a9c7db680a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/assets/css/AdminLTE.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/css/_all-skins.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/css/all.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/images/user2-160x160.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/js/adminlte.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/js/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-brands-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-brands-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-brands-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-brands-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-brands-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-regular-400.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-regular-400.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-regular-400.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-regular-400.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-regular-400.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-solid-900.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-solid-900.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-solid-900.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-solid-900.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/assets/webfonts/fa-solid-900.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Model.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/Product.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/models/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/layouts/main-login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/layouts/main.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/products/create.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/products/detail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/products/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/products/update.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/views/users/login.php" afterDir="false" />
+    <list default="true" id="74f2b890-c480-44d1-b938-1a9c7db680a7" name="Default Changelist" comment="commit...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/common/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.htaccess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/common/db.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/common/define.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/common/exportDB/qlbh.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/login_C.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/configs/Database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controller/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/model/admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/Controller.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/view/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/home_style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/login_style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views/users/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/users/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,8 +15,23 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
@@ -70,9 +42,7 @@
     </option>
   </component>
   <component name="ProjectId" id="23sL7Hgi6Ww4D1Ubgo6IYmJpRZx" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -81,15 +51,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/assets/webfonts" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\mini_project\backend" />
+      <recent name="C:\xampp\htdocs\mini_project\backend\assets\webfonts" />
+      <recent name="C:\xampp\htdocs\mini_project\backend\assets\css" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\xampp\htdocs\mini_project\backend" />
+      <recent name="C:\xampp\htdocs\mini_project\backend\assets\css\users" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -102,7 +74,8 @@
       <updated>1642517679226</updated>
       <workItem from="1642517680713" duration="1121000" />
       <workItem from="1642520158080" duration="30000" />
-      <workItem from="1642554544394" duration="2420000" />
+      <workItem from="1642692262172" duration="8607000" />
+      <workItem from="1642726210818" duration="7469000" />
     </task>
     <servers />
   </component>
