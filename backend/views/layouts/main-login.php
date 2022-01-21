@@ -26,7 +26,9 @@
         <?php if (!empty($this->error)): ?>
             <div class="alert alert-danger">
                 <?php
-                echo $this->error;
+                foreach($this->error as $e){
+                    echo $e ."<br>" ;
+                }
                 ?>
             </div>
         <?php endif; ?>

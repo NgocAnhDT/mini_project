@@ -4,7 +4,7 @@
 class Controller {
     public $page_title; //tiêu đề trang
 
-    public $error; // chứa thông tin lỗi
+    public $error=[]; // chứa thông tin lỗi
 
     public $content; //chứa nội dung của file view
 
