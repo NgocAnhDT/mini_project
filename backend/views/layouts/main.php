@@ -1,6 +1,6 @@
 <?php
 //    session_start();
-    if(!isset($_SESSION['login_id'])){
+    if(!isset($_SESSION['logged'])){
         $_SESSION['error'] = "Bạn chưa đăng nhập";
         header("Location: index.php?controller=user&action=login");
     }

@@ -33,8 +33,16 @@ class UserController extends Controller {
 
             if (!empty($username) && !empty($pass)) {
                 if($this->userModel->check_login($username, $pass)){
-                    $_SESSION['login_id'] = true;
-                    header("Location: index.php?controller=product&action=create");
+                    if(isset($_POST['remember'])){
+                        setcookie('username', $username, time()+ 3600*24*30);
+                        setcookie('password', $pass, time() + 3600*24*30);
+                    } else {
+                        setcookie('username', ' ');
+                        setcookie('password', ' ');
+                    }
+                    $_SESSION['logged'] = true;
+                    $_SESSION['username'] = $username;
+                    header("Location: index.php");
                 } else {
                     $msg_error[] = 'username hoặc password không đúng, vui lòng đăng nhập lại';
                 }
@@ -44,7 +52,6 @@ class UserController extends Controller {
         if(!empty($msg_error)){
             $this->error= $msg_error;
         }
-
         $this->content = $this->render('views/users/login.php');
 
         // - Gọi layout để hiển thị các thông tin trên
@@ -53,10 +60,18 @@ class UserController extends Controller {
 
     public function logout() {
         // unset các Session khi login thành công
-        //
-        session_destroy();
+        unset($_SESSION['logged']);
+        //unset remember cookie
+        if(isset($_COOKIE)){
+            unset($_COOKIE['username']);
+            unset($_COOKIE['password']);
+            setcookie('username','', time()-3600*24*30);
+            setcookie('password','', time()-3600*24*30);
+        }
         $_SESSION['success'] = "Đăng xuất thành công";
         header("Location: index.php?controller=user&action=login");
         exit();
     }
+
+
 }

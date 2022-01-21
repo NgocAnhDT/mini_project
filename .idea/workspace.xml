@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/UserController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/layouts/main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views/users/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/users/login.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -74,7 +76,7 @@
       <workItem from="1642517680713" duration="1121000" />
       <workItem from="1642520158080" duration="30000" />
       <workItem from="1642692262172" duration="8607000" />
-      <workItem from="1642726210818" duration="8552000" />
+      <workItem from="1642726210818" duration="14292000" />
     </task>
     <servers />
   </component>
