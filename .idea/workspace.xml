@@ -2,10 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74f2b890-c480-44d1-b938-1a9c7db680a7" name="Default Changelist" comment="commit...">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_19_2022_8_54_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_19_2022_8_54_AM__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2022_10_10_AM__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_21_2022_10_10_AM__Default_Changelist_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642643598-product2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642643695-product6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642643901-product5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642648211-product4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642648281-product6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642662668-product6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642662756-product8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642663529-ultra-boost.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642663577-product12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642733068-product7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/assets/images/uploads/1642733457-product11-yellow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/ProductController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/views/users/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/users/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views/products/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/products/create.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/views/products/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/products/update.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +38,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -52,7 +65,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/assets/webfonts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -76,7 +89,7 @@
       <workItem from="1642517680713" duration="1121000" />
       <workItem from="1642520158080" duration="30000" />
       <workItem from="1642692262172" duration="8607000" />
-      <workItem from="1642726210818" duration="14292000" />
+      <workItem from="1642726210818" duration="8552000" />
     </task>
     <servers />
   </component>
