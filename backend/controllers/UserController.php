@@ -34,7 +34,7 @@ class UserController extends Controller {
             if (!empty($username) && !empty($pass)) {
                 if($this->userModel->check_login($username, $pass)){
                     $_SESSION['login_id'] = true;
-                    header("Location: index.php?controller=product&action=create");
+                    header("Location: index.php");
                 } else {
                     $msg_error[] = 'username hoặc password không đúng, vui lòng đăng nhập lại';
                 }

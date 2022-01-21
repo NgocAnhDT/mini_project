@@ -1,11 +1,13 @@
 
 <div class="container-fluid">
     <h2>Thêm sản phẩm mới</h2>
-    <?php if($this->error != ''): ?>
+    <?php if(!empty($this->error)): ?>
         <div class="noti-error">
-            <p>
-                <?php echo $this->error; ?>
-            </p>
+            <?php
+                foreach($this->error as $e){
+                    echo $e ."<br>" ;
+                }
+            ?>
         </div>
     <?php endif; ?>
     <form class="form-create" action="" method="post" enctype="multipart/form-data">

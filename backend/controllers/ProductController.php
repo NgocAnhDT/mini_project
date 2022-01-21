@@ -5,6 +5,26 @@ require_once 'models/Product.php';
 
 class ProductController extends Controller {
 
+    function convert_name($str) {
+        $str = preg_replace("/(à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ)/", 'a', $str);
+        $str = preg_replace("/(è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ)/", 'e', $str);
+        $str = preg_replace("/(ì|í|ị|ỉ|ĩ)/", 'i', $str);
+        $str = preg_replace("/(ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ)/", 'o', $str);
+        $str = preg_replace("/(ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ)/", 'u', $str);
+        $str = preg_replace("/(ỳ|ý|ỵ|ỷ|ỹ)/", 'y', $str);
+        $str = preg_replace("/(đ)/", 'd', $str);
+        $str = preg_replace("/(À|Á|Ạ|Ả|Ã|Â|Ầ|Ấ|Ậ|Ẩ|Ẫ|Ă|Ằ|Ắ|Ặ|Ẳ|Ẵ)/", 'A', $str);
+        $str = preg_replace("/(È|É|Ẹ|Ẻ|Ẽ|Ê|Ề|Ế|Ệ|Ể|Ễ)/", 'E', $str);
+        $str = preg_replace("/(Ì|Í|Ị|Ỉ|Ĩ)/", 'I', $str);
+        $str = preg_replace("/(Ò|Ó|Ọ|Ỏ|Õ|Ô|Ồ|Ố|Ộ|Ổ|Ỗ|Ơ|Ờ|Ớ|Ợ|Ở|Ỡ)/", 'O', $str);
+        $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
+        $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
+        $str = preg_replace("/(Đ)/", 'D', $str);
+        $str = preg_replace("/(\“|\”|\‘|\’|\,|\!|\&|\;|\@|\#|\%|\~|\`|\=|\_|\'|\]|\[|\}|\{|\)|\(|\+|\^)/", '-', $str);
+        $str = preg_replace("/( )/", '-', $str);
+        return $str;
+    }
+
     public function index() {
         $product_model = new Product();
         $products = $product_model->listData();
@@ -34,23 +54,28 @@ class ProductController extends Controller {
             }
             // + Validate form:
             if (empty($product_name)){
-                $this->error = "Chưa nhập tên sản phẩm!";
-            } elseif (empty($price)) {
-                $this->error = "Chưa nhập giá bán!";
-            } elseif (!is_numeric($price)) {
-                $this->error = "Giá bán phải là số!";
-            } elseif ($_FILES['product_image']['error'] == 0){
+                $this->error['product_name'] = "Chưa nhập tên sản phẩm!";
+            }
+            if (empty($price)) {
+                $this->error['price'] = "Chưa nhập giá bán!";
+            }
+            if (!is_numeric($price)) {
+                $this->error['price'] = "Giá bán phải là số!";
+            }
+            if ($_FILES['product_image']['error'] == 0){
                 $extension = strtolower(pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION));
                 $alowed = ['png', 'jpg', 'jpeg', 'gif'];
                 if(!in_array($extension, $alowed)){
-                    $this->error = "File tải lên phải là ảnh";
+                    $this->error['product_img'] = "File tải lên phải là ảnh";
                 } elseif ($_FILES['product_image']['size'] > 2*1024*1024){
-                    $this->error = "Dung lượng file tải lên phải nhỏ hơn 2MB";
+                    $this->error['product_img'] = "Dung lượng file tải lên phải nhỏ hơn 2MB";
                 }
-            } elseif (!isset($_POST['size'])){
-                $this->error = "Chưa chọn size giày!";
-            } elseif (!isset($_POST['color'])){
-                $this->error = "Chưa chọn màu!";
+            }
+            if (!isset($_POST['size'])){
+                $this->error['size'] = "Chưa chọn size giày!";
+            }
+            if (!isset($_POST['color'])){
+                $this->error['color'] = "Chưa chọn màu!";
             }
 
             // + Lưu vào CSDL chỉ khi nào ko có lỗi:
@@ -80,7 +105,7 @@ class ProductController extends Controller {
                         mkdir($dir_uploads);
                     }
                     // Tạo tên file upload mang tính duy nhất -> tránh file bị ghi đè khi trùng tên
-                    $product_image = time() . '-' . $_FILES['product_image']['name'];
+                    $product_image = time() . '-' . $this->convert_name($product_name);
                     // Chuyển file từ thư mục tạm mà XAMPP đang lưu về thư mục đích
                     move_uploaded_file($_FILES['product_image']['tmp_name'], $dir_uploads . '/' . $product_image);
 
@@ -98,11 +123,11 @@ class ProductController extends Controller {
                 ];
                 $is_insert = $product_model->insertData($datas);
                 if ($is_insert) {
-                    $_SESSION['success'] = 'Thêm mới sp thành công';
+                    $_SESSION['success'] = 'Thêm sản phẩm mới thành công';
                     header('Location: index.php?controller=product&action=index');
                     exit();
                 }
-                $this->error = 'Thêm mới sản phẩm thất bại';
+                $this->error['error'] = 'Thêm mới sản phẩm thất bại';
             }
         }
         // - Gán thông tin cụ thể theo chức năng hiện tại
@@ -139,23 +164,28 @@ class ProductController extends Controller {
             }
             // + Validate form:
             if (empty($product_name)){
-                $this->error = "Chưa nhập tên sản phẩm!";
-            } elseif (empty($price)) {
-                $this->error = "Chưa nhập giá bán!";
-            } elseif (!is_numeric($price)) {
-                $this->error = "Giá bán phải là số!";
-            } elseif ($_FILES['product_image']['error'] == 0){
+                $this->error['product_name'] = "Chưa nhập tên sản phẩm!";
+            }
+            if (empty($price)) {
+                $this->error['price'] = "Chưa nhập giá bán!";
+            }
+            if (!is_numeric($price)) {
+                $this->error['price'] = "Giá bán phải là số!";
+            }
+            if ($_FILES['product_image']['error'] == 0){
                 $extension = strtolower(pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION));
                 $alowed = ['png', 'jpg', 'jpeg', 'gif'];
                 if(!in_array($extension, $alowed)){
-                    $this->error = "File tải lên phải là ảnh";
+                    $this->error['product_img'] = "File tải lên phải là ảnh";
                 } elseif ($_FILES['product_image']['size'] > 2*1024*1024){
-                    $this->error = "Dung lượng file tải lên phải nhỏ hơn 2MB";
+                    $this->error['product_img'] = "Dung lượng file tải lên phải nhỏ hơn 2MB";
                 }
-            } elseif (!isset($_POST['size'])){
-                $this->error = "Chưa chọn size giày!";
-            } elseif (!isset($_POST['color'])){
-                $this->error = "Chưa chọn màu!";
+            }
+            if (!isset($_POST['size'])){
+                $this->error['size'] = "Chưa chọn size giày!";
+            }
+            if (!isset($_POST['color'])){
+                $this->error['color'] = "Chưa chọn màu!";
             }
 
             // + Lưu vào CSDL chỉ khi nào ko có lỗi:
@@ -183,7 +213,7 @@ class ProductController extends Controller {
                     if (!file_exists($dir_uploads)) {
                         mkdir($dir_uploads);
                     }
-                    $product_image = time() . '-' . $_FILES['product_image']['name'];
+                    $product_image = time() . '-' . $this->convert_name($product_name);
                     // Chuyển file từ thư mục tạm mà XAMPP đang lưu về thư mục đích
                     move_uploaded_file($_FILES['product_image']['tmp_name'], $dir_uploads . '/' . $product_image);
                 }
@@ -204,7 +234,7 @@ class ProductController extends Controller {
                     header('Location: index.php?controller=product&action=index');
                     exit();
                 }
-                $this->error = "Sửa thông tin sản phẩm #$product_id thất bại";
+                $this->error['error'] = "Sửa thông tin sản phẩm #$product_id thất bại";
             }
         }
         // - Gán thông tin cụ thể theo chức năng hiện tại
