@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="assets/css/all.min.css">
+    <link href="assets/css/themify-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/AdminLTE.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -17,17 +18,17 @@
 </head>
 <body>
 <div class="fixed-top row header">
-    <div class="col-ld-2 col-md-2 col-sm-1 box-header">
+    <div class="col-ld-2 col-md-2 col-sm-1">
         <div class="brand text-center">
-            <a href="#">
-                <img src="../assets/images/logo/logo-shop.png" alt="Aries Shoes" class="logo-brand">
+            <a href="index.php?controller=home&action=index">
+                <img src="assets/images/logo-shop.png" alt="Aries Shoes" class="logo-brand">
                 <span class="hidden-sm navbar-brand">
-                            ARIES SHOES
-                        </span>
+                    ARIES SHOES
+                </span>
             </a>
         </div>
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-11 box-header right-header">
+    <div class="col-lg-10 col-md-10 col-sm-11">
         <div class="header-content row">
             <div class="btn-show col-lg-1 col-md-1 col-sm-3 col-">
                 <span></span>
@@ -44,7 +45,7 @@
                     </div>
                     <div class="avatars col-lg-4 col-md-4 col-sm-12 text-center has-btn-user">
                         <div class="avatar">
-                            <img src="../assets/images/avatars/user2-160x160.jpg" alt="Hà Thanh Hoàng" width="60">
+                            <img src="assets/images/user2-160x160.jpg" alt="Hà Thanh Hoàng">
                         </div>
                         <div class="btn-user">
                             <div class="btn-infor">
@@ -52,8 +53,8 @@
                                     Thông tin cá nhân
                                 </a>
                             </div>
-                            <div class="btn-signout">
-                                <a href="" class="btn btn-danger btn-block">
+                            <div class="btn-logout">
+                                <a href="index.php?controller=user&action=logout" class="btn btn-danger btn-block">
                                     Đăng xuất
                                 </a>
                             </div>
@@ -65,43 +66,63 @@
     </div>
 </div>
 <div class="content-page row">
-    <div class="col-ld-2 col-md-2 col-sm-1" style="background: #fff; height: 100vh">
+    <div class="col-ld-2 col-md-2 col-sm-1">
         <div class="side-bar">
-            <div class="user-info">
+            <div class="user-info text-center">
                 <div class="avatar">
-                    <img src="../assets/images/avatars/user2-160x160.jpg" alt="Hà Thanh Hoàng" width="100">
+                    <img src="assets/images/user2-160x160.jpg" alt="Hà Thanh Hoàng">
+                </div>
+                <div class="admin">
+                    Hà Thanh Hoàng <br> Admin
                 </div>
             </div>
-        </div>
-        <div class="menu-bar">
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    A list item
-                    <span class="badge bg-primary rounded-pill">14</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    A second list item
-                    <span class="badge bg-primary rounded-pill">2</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    A third list item
-                    <span class="badge bg-primary rounded-pill">1</span>
-                </li>
-            </ul>
+            <div class="menu-bar">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="ti-dashboard"></span>
+                        <a href="index.php?controller=home&action=index">Dashboard</a>
+                        <span class="badge bg-primary rounded-pill"></span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="ti-dropbox"></span>
+                        <a href="index.php?controller=product&action=index">Quản lý sản phẩm</a>
+                        <span class="badge bg-primary rounded-pill">
+                            <!--     Code total number of products -->
+                        </span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-11" style="background: #F1F2F7; height: 100vh">
+    <div class="col-lg-10 col-md-10 col-sm-11 main-content">
+        <div class="notifications-menu">
+            <?php if(isset($_SESSION['success'])) : ?>
+                <div class="alert-success">
+                    <?php
+                        echo $_SESSION['success'];
+                        unset($_SESSION['success']);
+                    ?>
+                </div>
+            <?php endif; ?>
+            <?php if(isset($_SESSION['error'])) : ?>
+                <div class="alert-danger">
+                    <?php
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                    ?>
+                </div>
+            <?php endif; ?>
+        </div>
         <?php echo $this->content; ?>
     </div>
-</div><script src="assets/js/jquery.min.js"></script>
+</div>
+<script src="assets/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="assets/js/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="assets/js/adminlte.min.js"></script>
-<!--CKEditor -->
-<script src="assets/ckeditor/ckeditor.js"></script>
 <!--My SCRIPT-->
 <script src="assets/js/script.js"></script>
 </body>
