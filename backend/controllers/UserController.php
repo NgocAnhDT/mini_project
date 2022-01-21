@@ -33,7 +33,6 @@ class UserController extends Controller {
 
             if (!empty($username) && !empty($pass)) {
                 if($this->userModel->check_login($username, $pass)){
-                    session_start();
                     $_SESSION['login_id'] = true;
                     header("Location: index.php?controller=product&action=create");
                 } else {
@@ -51,15 +50,10 @@ class UserController extends Controller {
         // - Gọi layout để hiển thị các thông tin trên
         require_once 'views/layouts/main-login.php';
     }
-//    public function check_loginned () {
-//        if(!isset($_SESSION['login_id'])){
-//            $_SESSION['error'] =
-//        }
-//    }
+
     public function logout() {
         // unset các Session khi login thành công
         //
-        session_start();
         session_destroy();
         $_SESSION['success'] = "Đăng xuất thành công";
         header("Location: index.php?controller=user&action=login");

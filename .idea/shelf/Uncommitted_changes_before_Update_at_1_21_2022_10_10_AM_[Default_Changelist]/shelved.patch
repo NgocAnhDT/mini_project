@@ -1,0 +1,85 @@
+Index: backend/views/layouts/main.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!doctype html>\r\n<html lang=\"en\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <link rel=\"stylesheet\" href=\"assets/css/bootstrap.min.css\">\r\n    <!-- Font Awesome -->\r\n    <link rel=\"stylesheet\" href=\"assets/css/all.min.css\">\r\n    <link rel=\"stylesheet\" href=\"assets/css/AdminLTE.min.css\">\r\n    <link rel=\"stylesheet\" href=\"assets/css/style.css\">\r\n    <!-- AdminLTE Skins. Choose a skin from the css/skins\r\n         folder instead of downloading all of them to reduce the load. -->\r\n    <link rel=\"stylesheet\" href=\"assets/css/_all-skins.min.css\">\r\n    <title><?php echo $this->page_title; ?></title>\r\n</head>\r\n<body>\r\n<div class=\"fixed-top row header\">\r\n    <div class=\"col-ld-2 col-md-2 col-sm-1 box-header\">\r\n        <div class=\"brand text-center\">\r\n            <a href=\"#\">\r\n                <img src=\"../assets/images/logo/logo-shop.png\" alt=\"Aries Shoes\" class=\"logo-brand\">\r\n                <span class=\"hidden-sm navbar-brand\">\r\n                            ARIES SHOES\r\n                        </span>\r\n            </a>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-lg-10 col-md-10 col-sm-11 box-header right-header\">\r\n        <div class=\"header-content row\">\r\n            <div class=\"btn-show col-lg-1 col-md-1 col-sm-3 col-\">\r\n                <span></span>\r\n                <span></span>\r\n                <span></span>\r\n            </div>\r\n            <div class=\"user col-lg-3 col-md-3 col-sm-9 float-end\">\r\n                <div class=\"row\">\r\n                    <div class=\"name col-lg-8 col-md-8 hidden-sm text-right\">\r\n                        Hà Thanh Hoàng\r\n                        <div class=\"online\">\r\n                            <span>Online</span>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"avatars col-lg-4 col-md-4 col-sm-12 text-center has-btn-user\">\r\n                        <div class=\"avatar\">\r\n                            <img src=\"../assets/images/avatars/user2-160x160.jpg\" alt=\"Hà Thanh Hoàng\" width=\"60\">\r\n                        </div>\r\n                        <div class=\"btn-user\">\r\n                            <div class=\"btn-infor\">\r\n                                <a href=\"\" class=\"btn btn-success btn-block\">\r\n                                    Thông tin cá nhân\r\n                                </a>\r\n                            </div>\r\n                            <div class=\"btn-signout\">\r\n                                <a href=\"\" class=\"btn btn-danger btn-block\">\r\n                                    Đăng xuất\r\n                                </a>\r\n                            </div>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n<div class=\"content-page row\">\r\n    <div class=\"col-ld-2 col-md-2 col-sm-1\" style=\"background: #fff; height: 100vh\">\r\n        <div class=\"side-bar\">\r\n            <div class=\"user-info\">\r\n                <div class=\"avatar\">\r\n                    <img src=\"../assets/images/avatars/user2-160x160.jpg\" alt=\"Hà Thanh Hoàng\" width=\"100\">\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"menu-bar\">\r\n            <ul class=\"list-group\">\r\n                <li class=\"list-group-item d-flex justify-content-between align-items-center\">\r\n                    A list item\r\n                    <span class=\"badge bg-primary rounded-pill\">14</span>\r\n                </li>\r\n                <li class=\"list-group-item d-flex justify-content-between align-items-center\">\r\n                    A second list item\r\n                    <span class=\"badge bg-primary rounded-pill\">2</span>\r\n                </li>\r\n                <li class=\"list-group-item d-flex justify-content-between align-items-center\">\r\n                    A third list item\r\n                    <span class=\"badge bg-primary rounded-pill\">1</span>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n    <div class=\"col-lg-10 col-md-10 col-sm-11\" style=\"background: #F1F2F7; height: 100vh\">\r\n        <?php echo $this->content; ?>\r\n    </div>\r\n</div><script src=\"assets/js/jquery.min.js\"></script>\r\n<!-- jQuery UI 1.11.4 -->\r\n<script src=\"assets/js/jquery-ui.min.js\"></script>\r\n<!-- Bootstrap 3.3.7 -->\r\n<script src=\"assets/js/bootstrap.min.js\"></script>\r\n<!-- AdminLTE App -->\r\n<script src=\"assets/js/adminlte.min.js\"></script>\r\n<!--CKEditor -->\r\n<script src=\"assets/ckeditor/ckeditor.js\"></script>\r\n<!--My SCRIPT-->\r\n<script src=\"assets/js/script.js\"></script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/views/layouts/main.php b/backend/views/layouts/main.php
+--- a/backend/views/layouts/main.php	(revision c21447df96f0e11e06960f4724dae43ca16e115f)
++++ b/backend/views/layouts/main.php	(date 1642734570121)
+@@ -1,3 +1,10 @@
++<?php
++//    session_start();
++    if(!isset($_SESSION['login_id'])){
++        $_SESSION['error'] = "Bạn chưa đăng nhập";
++        header("Location: index.php?controller=user&action=login");
++    }
++?>
+ <!doctype html>
+ <html lang="en">
+ <head>
+Index: backend/controllers/UserController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n//controllers/UserController.php\r\nrequire_once 'controllers/Controller.php';\r\nrequire_once 'models/User.php';\r\n\r\nclass UserController extends Controller {\r\n    public $userModel;\r\n\r\n    public function __construct() {\r\n        $this->userModel= new User();\r\n    }\r\n\r\n    public function login() {\r\n        // - Gán thông tin cụ thể theo chức năng hiện tại\r\n        $this->page_title = \"Login\";\r\n        $msg_error=[];\r\n        if (isset($_POST['btn_login'])){\r\n            if(empty($_POST['username'])){\r\n                $msg_error['username']=\"Hãy nhập username\";\r\n            } elseif (strlen($_POST['username']) < 4){\r\n                $msg_error['username']=\"Hãy nhập username tối thiểu 4 kí tự\";\r\n            } else {\r\n                $username = $_POST['username'];\r\n            }\r\n\r\n            if (empty($_POST['password'])){\r\n                $msg_error['password']=\"Hãy nhập password\";\r\n            } elseif (strlen($_POST['password']) < 6) {\r\n                $msg_error['password'] = \"Hãy nhập password tối thiểu 6 kí tự\";\r\n            } else {\r\n                $pass = $_POST['password'];\r\n            }\r\n\r\n            if (!empty($username) && !empty($pass)) {\r\n                if($this->userModel->check_login($username, $pass)){\r\n                    session_start();\r\n                    $_SESSION['login_id'] = true;\r\n                    header(\"Location: index.php?controller=product&action=create\");\r\n                } else {\r\n                    $msg_error[] = 'username hoặc password không đúng, vui lòng đăng nhập lại';\r\n                }\r\n            }\r\n        }\r\n\r\n        if(!empty($msg_error)){\r\n            $this->error= $msg_error;\r\n        }\r\n\r\n        $this->content = $this->render('views/users/login.php');\r\n\r\n        // - Gọi layout để hiển thị các thông tin trên\r\n        require_once 'views/layouts/main-login.php';\r\n    }\r\n//    public function check_loginned () {\r\n//        if(!isset($_SESSION['login_id'])){\r\n//            $_SESSION['error'] =\r\n//        }\r\n//    }\r\n    public function logout() {\r\n        // unset các Session khi login thành công\r\n        //\r\n        session_start();\r\n        session_destroy();\r\n        $_SESSION['success'] = \"Đăng xuất thành công\";\r\n        header(\"Location: index.php?controller=user&action=login\");\r\n        exit();\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/backend/controllers/UserController.php b/backend/controllers/UserController.php
+--- a/backend/controllers/UserController.php	(revision c21447df96f0e11e06960f4724dae43ca16e115f)
++++ b/backend/controllers/UserController.php	(date 1642734463009)
+@@ -33,7 +33,6 @@
+ 
+             if (!empty($username) && !empty($pass)) {
+                 if($this->userModel->check_login($username, $pass)){
+-                    session_start();
+                     $_SESSION['login_id'] = true;
+                     header("Location: index.php?controller=product&action=create");
+                 } else {
+@@ -51,15 +50,10 @@
+         // - Gọi layout để hiển thị các thông tin trên
+         require_once 'views/layouts/main-login.php';
+     }
+-//    public function check_loginned () {
+-//        if(!isset($_SESSION['login_id'])){
+-//            $_SESSION['error'] =
+-//        }
+-//    }
++
+     public function logout() {
+         // unset các Session khi login thành công
+         //
+-        session_start();
+         session_destroy();
+         $_SESSION['success'] = "Đăng xuất thành công";
+         header("Location: index.php?controller=user&action=login");
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"74f2b890-c480-44d1-b938-1a9c7db680a7\" name=\"Default Changelist\" comment=\"commit...\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/controllers/UserController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/controllers/UserController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/models/User.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/models/User.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/backend/views/users/login.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/backend/views/users/login.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"CSS File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitSEFilterConfiguration\">\r\n    <file-type-list>\r\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\r\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\r\n      <filtered-out-file-type name=\"TAG\" />\r\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\r\n    </file-type-list>\r\n  </component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"609ce1f6-6641-4e74-aebc-d2c0c1319951\" />\r\n        <option name=\"url\" value=\"https://github.com/NgocAnhDT/mini_project.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"23sL7Hgi6Ww4D1Ubgo6IYmJpRZx\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/backend/assets/webfonts\" />\r\n    <property name=\"list.type.of.created.stylesheet\" value=\"CSS\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\xampp\\htdocs\\mini_project\\backend\\assets\\webfonts\" />\r\n      <recent name=\"C:\\xampp\\htdocs\\mini_project\\backend\\assets\\css\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\xampp\\htdocs\\mini_project\\backend\\assets\\css\\users\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"74f2b890-c480-44d1-b938-1a9c7db680a7\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1642517679226</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1642517679226</updated>\r\n      <workItem from=\"1642517680713\" duration=\"1121000\" />\r\n      <workItem from=\"1642520158080\" duration=\"30000\" />\r\n      <workItem from=\"1642692262172\" duration=\"8607000\" />\r\n      <workItem from=\"1642726210818\" duration=\"7469000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision c21447df96f0e11e06960f4724dae43ca16e115f)
++++ b/.idea/workspace.xml	(date 1642734570280)
+@@ -4,8 +4,7 @@
+     <list default="true" id="74f2b890-c480-44d1-b938-1a9c7db680a7" name="Default Changelist" comment="commit...">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/backend/controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/controllers/UserController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/models/User.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/backend/views/users/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/users/login.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/backend/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/views/layouts/main.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -75,7 +74,7 @@
+       <workItem from="1642517680713" duration="1121000" />
+       <workItem from="1642520158080" duration="30000" />
+       <workItem from="1642692262172" duration="8607000" />
+-      <workItem from="1642726210818" duration="7469000" />
++      <workItem from="1642726210818" duration="8174000" />
+     </task>
+     <servers />
+   </component>
