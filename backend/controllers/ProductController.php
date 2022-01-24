@@ -149,6 +149,11 @@ class ProductController extends Controller {
         $product_id = $_GET['id'];
         $product_model = new Product();
         $product = $product_model->getOne($product_id);
+        if(empty($product)){
+            $_SESSION['error'] = "Không tồn tại sản phẩm có id = $product_id!";
+            header("Location: index.php?controller=product&action=index");
+            exit();
+        }
 //
 //        echo "<pre>";
 //        print_r($product);
@@ -257,6 +262,12 @@ class ProductController extends Controller {
         }
         $product_id = $_GET['id'];
         $product_model = new Product();
+        $product = $product_model->getOne($product_id);
+        if(empty($product)){
+            $_SESSION['error'] = "Không tồn tại sản phẩm có id = $product_id!";
+            header("Location: index.php?controller=product&action=index");
+            exit();
+        }
         $is_delete = $product_model->delete($product_id);
         if ($is_delete) {
             $_SESSION['success'] = 'Xóa dữ liệu thành công';
@@ -276,6 +287,11 @@ class ProductController extends Controller {
         $product_id = $_GET['id'];
         $product_model = new Product();
         $product = $product_model->getOne($product_id);
+        if(empty($product)){
+            $_SESSION['error'] = "Không tồn tại sản phẩm có id = $product_id!";
+            header("Location: index.php?controller=product&action=index");
+            exit();
+        }
         $amount = $product_model->amount();
 
         $this->page_title = "Chi tiết sản phẩm";
