@@ -4,6 +4,7 @@
         $_SESSION['error'] = "Bạn chưa đăng nhập";
         header("Location: index.php?controller=user&action=login");
     }
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -95,6 +96,7 @@
                         <a href="index.php?controller=product&action=index">Quản lý sản phẩm</a>
                         <span class="badge bg-primary rounded-pill">
                             <!--     Code total number of products -->
+                            <?php echo $amount; ?>
                         </span>
                     </li>
                 </ul>

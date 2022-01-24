@@ -18,6 +18,14 @@ class Product extends Model {
         return $obj_insert->execute($inserts);
     }
 
+    public function amount() {
+        $sql_select_amount = "SELECT COUNT(*) FROM products";
+        $obj_select_amount = $this->connection->prepare($sql_select_amount);
+
+        $obj_select_amount->execute();
+        return $obj_select_amount->fetchColumn();
+    }
+
     public function listData() {
         $sql_select_all = "SELECT * FROM products";
         $obj_select_all = $this->connection->prepare($sql_select_all);

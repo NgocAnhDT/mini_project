@@ -28,9 +28,10 @@ class ProductController extends Controller {
     public function index() {
         $product_model = new Product();
         $products = $product_model->listData();
+        $amount = $product_model->amount();
         // - Gán thông tin cụ thể theo chức năng hiện tại
         $this->page_title = "Quản lý sản phẩm";
-        $this->content = $this->render('views/products/index.php', ['products' => $products]);
+        $this->content = $this->render('views/products/index.php', ['products' => $products, 'amount' => $amount]);
 
         // - Gọi layout để hiển thị các thông tin trên
         require_once 'views/layouts/main.php';
@@ -112,7 +113,6 @@ class ProductController extends Controller {
                 }
                 // Từ Controller gọi Model để nhờ Model tương tác với CSDL -> MVC
                 $product_model = new Product();
-
                 $datas = [
                     'product_name' => $product_name,
                     'product_img' => $product_image,
@@ -131,8 +131,10 @@ class ProductController extends Controller {
             }
         }
         // - Gán thông tin cụ thể theo chức năng hiện tại
+        $product_amount = new Product();
+        $amount = $product_amount->amount();
         $this->page_title = "Thêm mới sản phẩm";
-        $this->content = $this->render('views/products/create.php');
+        $this->content = $this->render('views/products/create.php', ['amount' => $amount]);
 
         // - Gọi layout để hiển thị các thông tin trên
         require_once 'views/layouts/main.php';
@@ -239,7 +241,9 @@ class ProductController extends Controller {
         }
         // - Gán thông tin cụ thể theo chức năng hiện tại
         $this->page_title = "Sửa thông tin sản phẩm";
-        $this->content = $this->render('views/products/update.php', ['product' => $product]);
+        $product_amount = new Product();
+        $amount = $product_amount->amount();
+        $this->content = $this->render('views/products/update.php', ['product' => $product, 'amount' => $amount]);
 
         // - Gọi layout để hiển thị các thông tin trên
         require_once 'views/layouts/main.php';
@@ -272,9 +276,10 @@ class ProductController extends Controller {
         $product_id = $_GET['id'];
         $product_model = new Product();
         $product = $product_model->getOne($product_id);
+        $amount = $product_model->amount();
 
         $this->page_title = "Chi tiết sản phẩm";
-        $this->content = $this->render('views/products/detail.php', ['product' => $product]);
+        $this->content = $this->render('views/products/detail.php', ['product' => $product, 'amount' => $amount]);
 
         // - Gọi layout để hiển thị các thông tin trên
         require_once 'views/layouts/main.php';
