@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 21, 2022 lúc 05:17 AM
--- Phiên bản máy phục vụ: 10.4.22-MariaDB
--- Phiên bản PHP: 7.4.27
+-- Host: 127.0.0.1
+-- Generation Time: Jan 24, 2022 at 03:30 AM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.3.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,33 +18,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `qlbh`
+-- Database: `qlbh`
 --
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admins`
+-- Table structure for table `admins`
 --
 
 CREATE TABLE `admins` (
   `id` int(10) NOT NULL,
   `username` varchar(20) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
   `password` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `admins`
+-- Dumping data for table `admins`
 --
 
-INSERT INTO `admins` (`id`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$QcNFGdRDvdUFNvDOF7hjEet3Y5/xYb92bpmsP5gWNFIpU5CCQZrcm'),
-(2, 'admin2', '$2y$10$oEqeKSq8WG5vr4TYv5T18.aL5y4Q6JOZ5ckbo.8a3sR6o71f9K77e');
+INSERT INTO `admins` (`id`, `username`, `fullname`, `password`) VALUES
+(1, 'admin', 'Hà Thanh Hoàng', '$2y$10$QcNFGdRDvdUFNvDOF7hjEet3Y5/xYb92bpmsP5gWNFIpU5CCQZrcm'),
+(2, 'admin2', 'Doãn Thị Ngọc Anh', '$2y$10$oEqeKSq8WG5vr4TYv5T18.aL5y4Q6JOZ5ckbo.8a3sR6o71f9K77e');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `products`
+-- Table structure for table `products`
 --
 
 CREATE TABLE `products` (
@@ -60,47 +61,47 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`product_id`, `product_name`, `product_img`, `brand`, `price`, `size`, `color`, `created_at`, `updated_at`) VALUES
-(1, 'Nike Dunk Low', '1642738332-Nike-Dunk-Low', 'Adidas', '750000', '40', 'Vàng', '2022-01-18 16:59:24', '2022-01-21 04:12:12'),
-(2, 'Nike Cell Exsis WNS', '1642738521-Nike-Cell-Exsis-WNS', 'Nike', '295000', '42', 'Xanh lam', '2022-01-20 09:18:49', '2022-01-21 04:15:53'),
-(3, 'Climacool Vento Shoes Mid SS21-GY40', '1642738438-Climacool-Vento-Shoes-Mid-SS21-GY40', 'Adidas', '380000', '42', 'Đỏ', '2022-01-20 10:10:11', '2022-01-21 04:15:59'),
-(4, 'Giày chạy bộ nam Hàn Quốc', '1642738454-Giay-chay-bo-nam-Han-Quoc', 'Converse', '15900000', '41', 'Đen', '2022-01-20 10:11:21', '2022-01-21 04:16:07'),
-(5, 'Giày Thể Thao Prowin Nữ', '1642738531-Giay-The-Thao-Prowin-Nu', 'Adidas', '150000', '38', 'Vàng', '2022-01-21 09:50:47', '2022-01-21 04:16:14');
+(1, 'Nike Dunk Low', '1642738332-Nike-Dunk-Low', 'Adidas', '750000', '40', 'Vàng', '2022-01-18 16:59:24', '2022-01-20 21:12:12'),
+(2, 'Nike Cell Exsis WNS', '1642738521-Nike-Cell-Exsis-WNS', 'Nike', '295000', '42', 'Xanh lam', '2022-01-20 09:18:49', '2022-01-20 21:15:53'),
+(3, 'Climacool Vento Shoes Mid SS21-GY40', '1642738438-Climacool-Vento-Shoes-Mid-SS21-GY40', 'Adidas', '380000', '42', 'Đỏ', '2022-01-20 10:10:11', '2022-01-20 21:15:59'),
+(4, 'Giày chạy bộ nam Hàn Quốc', '1642738454-Giay-chay-bo-nam-Han-Quoc', 'Converse', '15900000', '41', 'Đen', '2022-01-20 10:11:21', '2022-01-20 21:16:07'),
+(5, 'Giày Thể Thao Prowin Nữ', '1642738531-Giay-The-Thao-Prowin-Nu', 'Adidas', '150000', '38', 'Vàng', '2022-01-21 09:50:47', '2022-01-20 21:16:14');
 
 --
--- Chỉ mục cho các bảng đã đổ
+-- Indexes for dumped tables
 --
 
 --
--- Chỉ mục cho bảng `admins`
+-- Indexes for table `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`);
 
 --
--- Chỉ mục cho bảng `products`
+-- Indexes for table `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`product_id`);
 
 --
--- AUTO_INCREMENT cho các bảng đã đổ
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT cho bảng `admins`
+-- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT cho bảng `products`
+-- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
