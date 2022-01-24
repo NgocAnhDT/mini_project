@@ -37,6 +37,9 @@ class UserController extends Controller {
                     if(isset($_POST['remember'])){
                         setcookie('username', $username, time()+ 3600*24*30);
                         setcookie('password', $pass, time() + 3600*24*30);
+                    } else {
+                        setcookie('username',' ', time()-3600*24*30);
+                        setcookie('password',' ', time()-3600*24*30);
                     }
                     $_SESSION['logged'] = true;
                     $_SESSION['username'] = $username;
@@ -62,13 +65,6 @@ class UserController extends Controller {
         unset($_SESSION['logged']);
         unset($_SESSION['username']);
         unset($_SESSION['fullname']);
-        //unset remember cookie
-        if(isset($_COOKIE)){
-            unset($_COOKIE['username']);
-            unset($_COOKIE['password']);
-            setcookie('username',' ', time()-3600*24*30);
-            setcookie('password',' ', time()-3600*24*30);
-        }
         $_SESSION['success'] = "Đăng xuất thành công";
         header("Location: index.php?controller=user&action=login");
         exit();

@@ -34,8 +34,8 @@
                     </div>
                     <!--CheckBox-->
                     <div class="form__remember">
-                        <input type="checkbox" name="remember">
-                        <span class="check_mark">Remember me</span>
+                        <input type="checkbox" name="remember" <?php echo isset($_COOKIE['username']) ? 'checked':''; ?>>
+                        <span>Remember me</span>
                     </div>
 
                     <input type="submit" name="btn_login" value="Login"/>
