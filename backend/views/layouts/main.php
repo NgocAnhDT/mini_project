@@ -29,7 +29,7 @@
         <div class="brand text-center">
             <a href="index.php?controller=home&action=index">
                 <img src="assets/images/logo-shop.png" alt="Aries Shoes" class="logo-brand">
-                <span class="hidden-sm navbar-brand">
+                <span class="hidden-sm navbar-brand hidden-md">
                     ARIES SHOES
                 </span>
             </a>
@@ -45,21 +45,16 @@
             <div class="user col-lg-3 col-md-3 col-sm-9 float-end">
                 <div class="row">
                     <div class="name col-lg-8 col-md-8 hidden-sm text-right">
-                        Hà Thanh Hoàng
+                        <?php echo $_SESSION['fullname'];?>
                         <div class="online">
                             <span>Online</span>
                         </div>
                     </div>
                     <div class="avatars col-lg-4 col-md-4 col-sm-12 text-center has-btn-user">
                         <div class="avatar">
-                            <img src="assets/images/user2-160x160.jpg" alt="Hà Thanh Hoàng">
+                            <img src="assets/images/user2-160x160.jpg" alt="">
                         </div>
                         <div class="btn-user">
-                            <div class="btn-infor">
-                                <a href="" class="btn btn-success btn-block">
-                                    Thông tin cá nhân
-                                </a>
-                            </div>
                             <div class="btn-logout">
                                 <a href="index.php?controller=user&action=logout" class="btn btn-danger btn-block">
                                     Đăng xuất
@@ -77,10 +72,10 @@
         <div class="side-bar">
             <div class="user-info text-center">
                 <div class="avatar">
-                    <img src="assets/images/user2-160x160.jpg" alt="Hà Thanh Hoàng">
+                    <img src="assets/images/user2-160x160.jpg" alt="<?php echo $_SESSION['fullname'];?>">
                 </div>
                 <div class="admin">
-                    Hà Thanh Hoàng <br> Admin
+                    <?php echo $_SESSION['fullname']?><br> <?php echo $_SESSION['username']?>
                 </div>
             </div>
             <div class="menu-bar">
@@ -132,5 +127,15 @@
 <script src="assets/js/adminlte.min.js"></script>
 <!--My SCRIPT-->
 <script src="assets/js/script.js"></script>
+<!--<script>-->
+<!--    function openMenu() {-->
+<!--        document.getElementById("mySidenav").style.left = "0";-->
+<!--    }-->
+<!---->
+<!--    function closeMenu() {-->
+<!--        document.getElementById("mySidenav").style.left = "-16%";-->
+<!--    }-->
+<!--</script>-->
+
 </body>
 </html>

@@ -32,13 +32,15 @@ class UserController extends Controller {
             }
 
             if (!empty($username) && !empty($pass)) {
-                if($this->userModel->check_login($username, $pass)){
+                $row = $this->userModel->check_login($username, $pass);
+                if($row){
                     if(isset($_POST['remember'])){
                         setcookie('username', $username, time()+ 3600*24*30);
                         setcookie('password', $pass, time() + 3600*24*30);
                     }
                     $_SESSION['logged'] = true;
                     $_SESSION['username'] = $username;
+                    $_SESSION['fullname'] = $row['fullname'];
                     header("Location: index.php");
                 } else {
                     $msg_error[] = 'username hoặc password không đúng, vui lòng đăng nhập lại';
@@ -58,6 +60,8 @@ class UserController extends Controller {
     public function logout() {
         // unset các Session khi login thành công
         unset($_SESSION['logged']);
+        unset($_SESSION['username']);
+        unset($_SESSION['fullname']);
         //unset remember cookie
         if(isset($_COOKIE)){
             unset($_COOKIE['username']);
