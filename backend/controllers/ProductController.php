@@ -61,7 +61,10 @@ class ProductController extends Controller {
             }
             if (!is_numeric($price)) {
                 $this->error['price'] = "Giá bán phải là số!";
+            } elseif ($price <= 0) {
+                $this->error['price'] = "Giá bán phải lớn hơn 0";
             }
+
             if ($_FILES['product_image']['error'] == 0){
                 $extension = strtolower(pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION));
                 $alowed = ['png', 'jpg', 'jpeg', 'gif'];
@@ -130,6 +133,7 @@ class ProductController extends Controller {
                 $this->error['error'] = 'Thêm mới sản phẩm thất bại';
             }
         }
+
         // - Gán thông tin cụ thể theo chức năng hiện tại
         $this->page_title = "Thêm mới sản phẩm";
         $this->content = $this->render('views/products/create.php');
@@ -171,7 +175,10 @@ class ProductController extends Controller {
             }
             if (!is_numeric($price)) {
                 $this->error['price'] = "Giá bán phải là số!";
+            } elseif ($price <= 0) {
+                $this->error['price'] = "Giá bán phải lớn hơn 0";
             }
+
             if ($_FILES['product_image']['error'] == 0){
                 $extension = strtolower(pathinfo($_FILES['product_image']['name'], PATHINFO_EXTENSION));
                 $alowed = ['png', 'jpg', 'jpeg', 'gif'];

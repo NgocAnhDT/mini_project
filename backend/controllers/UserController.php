@@ -4,16 +4,12 @@ require_once 'controllers/Controller.php';
 require_once 'models/User.php';
 
 class UserController extends Controller {
-    public $userModel;
-
-    public function __construct() {
-        $this->userModel= new User();
-    }
 
     public function login() {
         // - Gán thông tin cụ thể theo chức năng hiện tại
         $this->page_title = "Login";
         $msg_error=[];
+        $userModel = new User();
         if (isset($_POST['btn_login'])){
             if(empty($_POST['username'])){
                 $msg_error['username']="Hãy nhập username";
@@ -32,14 +28,18 @@ class UserController extends Controller {
             }
 
             if (!empty($username) && !empty($pass)) {
-                $row = $this->userModel->check_login($username, $pass);
+                $row = $userModel->check_login($username, $pass);
                 if($row){
+                    $time_expire = 60*60*24*10;
                     if(isset($_POST['remember'])){
-                        setcookie('username', $username, time()+ 3600*24*30);
-                        setcookie('password', $pass, time() + 3600*24*30);
+                        setcookie('username', $username, time()+ $time_expire);
+                        setcookie('password', $pass, time() + $time_expire);
                     } else {
-                        setcookie('username',' ', time()-3600*24*30);
-                        setcookie('password',' ', time()-3600*24*30);
+                        if (isset($_COOKIE['username']) && isset($_COOKIE['password']))
+                        {
+                            setcookie('username','', time() - 1);
+                            setcookie('password','', time()- 1);
+                        }
                     }
                     $_SESSION['logged'] = true;
                     $_SESSION['username'] = $username;

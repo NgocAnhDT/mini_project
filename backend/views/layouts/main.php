@@ -125,17 +125,7 @@
 <script src="assets/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="assets/js/adminlte.min.js"></script>
-<!--My SCRIPT-->
-<script src="assets/js/script.js"></script>
-<!--<script>-->
-<!--    function openMenu() {-->
-<!--        document.getElementById("mySidenav").style.left = "0";-->
-<!--    }-->
-<!---->
-<!--    function closeMenu() {-->
-<!--        document.getElementById("mySidenav").style.left = "-16%";-->
-<!--    }-->
-<!--</script>-->
+
 
 </body>
 </html>
