@@ -10,7 +10,7 @@
             ?>
         </div>
     <?php endif; ?>
-    <form class="form-create" action="" method="post" enctype="multipart/form-data">
+    <form class="form-create" id="form-create" action="" method="post" enctype="multipart/form-data">
         <div class="title text-center">
             Nhập thông tin sản phẩm
         </div>
@@ -96,11 +96,11 @@
             if(isset($_POST['color'])){
                 $color = $_POST['color'];
                 switch ($color) {
-                    case "Đỏ": $checked_red = "checked"; break;
-                    case "Vàng": $checked_yellow = "checked"; break;
-                    case "Xanh lam": $checked_blue = "checked"; break;
-                    case "Xanh lá": $checked_green = "checked"; break;
-                    case "Đen": $checked_black = "checked";
+                    case 0: $checked_red = "checked"; break;
+                    case 1: $checked_yellow = "checked"; break;
+                    case 2: $checked_blue = "checked"; break;
+                    case 3: $checked_green = "checked"; break;
+                    case 4: $checked_black = "checked";
                 }
             }
             ?>
@@ -118,7 +118,7 @@
             </div>
         </div>
         <div class="text-center butt">
-            <input type="reset" class="btn btn-warning" value="Reset form">
+            <input type="reset" class="btn btn-warning" value="Reset form" onclick="reset_form()">
             <input type="submit" name="submit" class="btn btn-success" value="Lưu">
         </div>
     </form>
@@ -127,3 +127,8 @@
     </div>
 
 </div>
+<script type="text/javascript">
+    function reset_form() {
+        document.getElementById('product_name').setAttribute('value', '');
+        document.getElementById('price').setAttribute('value', ''); }
+</script
