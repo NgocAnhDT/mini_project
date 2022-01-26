@@ -4,7 +4,7 @@ require_once 'models/Model.php';
 
 class User extends Model {
 
-    public function check_login($username, $password){
+    public function check_user($username, $password){
         $stmt = $this->connection->prepare("SELECT * from admins WHERE username=? LIMIT 1");
         $stmt->bindValue(1, $username, PDO::PARAM_STR);
         $stmt->execute();
