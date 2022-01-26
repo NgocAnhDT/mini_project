@@ -238,7 +238,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 17px;
+  margin-left: 30px;
 }
 
 .product-image img {
@@ -248,9 +248,11 @@
 
 .product-name {
   white-space: nowrap;
-  width: 230px;
+  width: 200px;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: inline-block;
+  text-align: center;
 }
 
 .product-image img:hover {
@@ -262,7 +264,9 @@
   font-size: 16px;
   color: red;
   text-align: left;
-  margin-left: 33px;
+  margin-left: 30px;
+  width: 200px;
+  display: inline-block;
 }
 
 .mr-tb-20 {
