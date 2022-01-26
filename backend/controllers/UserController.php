@@ -10,6 +10,18 @@ class UserController extends Controller {
         $this->page_title = "Login";
         $msg_error=[];
         $userModel = new User();
+
+        if(isset($_COOKIE['username']) && isset($_COOKIE['password'])) {
+            $row = $userModel->check_login($_COOKIE['username'], $_COOKIE['password']);
+            if($row){
+                $_SESSION['logged'] = true;
+                $_SESSION['username'] = $username;
+                $_SESSION['fullname'] = $row['fullname'];
+                header("Location: index.php");
+                exit();
+            }
+        }
+
         if (isset($_POST['btn_login'])){
             if(empty($_POST['username'])){
                 $msg_error['username']="Hãy nhập username";
@@ -34,12 +46,6 @@ class UserController extends Controller {
                     if(isset($_POST['remember'])){
                         setcookie('username', $username, time()+ $time_expire);
                         setcookie('password', $pass, time() + $time_expire);
-                    } else {
-                        if (isset($_COOKIE['username']) && isset($_COOKIE['password']))
-                        {
-                            setcookie('username','', time() - 1);
-                            setcookie('password','', time()- 1);
-                        }
                     }
                     $_SESSION['logged'] = true;
                     $_SESSION['username'] = $username;
@@ -65,6 +71,12 @@ class UserController extends Controller {
         unset($_SESSION['logged']);
         unset($_SESSION['username']);
         unset($_SESSION['fullname']);
+        //xóa cookie, thiết lập thời gian hết hạn là 1s trước
+        if(isset($_COOKIE['username']) && isset($_COOKIE['password'])) {
+            setcookie('username','', time() - 1);
+            setcookie('password','', time()- 1);
+        }
+
         $_SESSION['success'] = "Đăng xuất thành công";
         header("Location: index.php?controller=user&action=login");
         exit();

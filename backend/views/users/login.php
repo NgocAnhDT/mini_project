@@ -22,19 +22,16 @@
                     <div class="form__group">
                         <label><i class="login_icon fas fa-user"></i></label>
                         <input type="text" name="username" placeholder="Username"
-                               value="<?php
-                                            echo isset($_POST['username']) ? $_POST['username']:'';
-                                            echo isset($_COOKIE['username']) ? $_COOKIE['username']:''; ?>"/>
+                               value="<?php echo isset($_POST['username']) ? $_POST['username']:''; ?>"/>
                     </div>
                     <div class="form__group">
                         <label><i class="login_icon fas fa-lock"></i></label>
                         <input type="password" name="password" placeholder="Password"
-                               value="<?php echo isset($_POST['password']) ? $_POST['password']:'';
-                                            echo isset($_COOKIE['password']) ? $_COOKIE['password']:''; ?>"/>
+                               value="<?php echo isset($_POST['password']) ? $_POST['password']:''; ?>"/>
                     </div>
                     <!--CheckBox-->
                     <div class="form__remember">
-                        <input type="checkbox" name="remember" <?php echo isset($_COOKIE['username']) ? 'checked':''; ?>>
+                        <input type="checkbox" name="remember">
                         <span>Remember me</span>
                     </div>
 
