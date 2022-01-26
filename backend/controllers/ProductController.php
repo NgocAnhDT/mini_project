@@ -56,8 +56,8 @@ class ProductController extends Controller {
 //        print_r($_FILES);
 //        echo "</pre>";
         if (isset($_POST['submit'])) {
-            $product_name = $_POST['product_name'];
-            $price = $_POST['price'];
+            $product_name = htmlspecialchars($_POST['product_name']);
+            $price = htmlspecialchars($_POST['price']);
             $brand = ''; $size = ''; $color = '';
             $brand_value = $_POST['brand'];
             switch ($brand_value) {
@@ -90,13 +90,7 @@ class ProductController extends Controller {
             }
             if (!isset($_POST['size'])){
                 $this->error['size'] = "Chưa chọn size giày!";
-            }
-            if (!isset($_POST['color'])){
-                $this->error['color'] = "Chưa chọn màu!";
-            }
-
-            // + Lưu vào CSDL chỉ khi nào ko có lỗi:
-            if (empty($this->error)) {
+            } else {
                 $size_value = $_POST['size'];
                 switch ($size_value) {
                     case 38: $size = 38; break;
@@ -104,7 +98,12 @@ class ProductController extends Controller {
                     case 40: $size = 40; break;
                     case 41: $size = 41; break;
                     case 42: $size = 42; break;
+                    default: $this->error['size'] = "Size vừa chọn không phù hợp!";
                 }
+            }
+            if (!isset($_POST['color'])){
+                $this->error['color'] = "Chưa chọn màu!";
+            } else {
                 $color_value = $_POST['color'];
                 switch ($color_value) {
                     case 0: $color = "Đỏ"; break;
@@ -112,8 +111,13 @@ class ProductController extends Controller {
                     case 2: $color = "Xanh lam"; break;
                     case 3: $color = "Xanh lá"; break;
                     case 4: $color = "Đen"; break;
+                    default: $this->error['color'] = "Màu vừa chọn không phù hợp!";
                 }
+            }
 
+
+            // + Lưu vào CSDL chỉ khi nào ko có lỗi:
+            if (empty($this->error)) {
                 $product_image = '';
                 if ($_FILES['product_image']['error'] == 0) {
                     // Khai báo thư mục chứa các file tải lên
@@ -176,8 +180,8 @@ class ProductController extends Controller {
 //        print_r($product);
 //        echo "</pre>";
         if (isset($_POST['submit'])) {
-            $product_name = $_POST['product_name'];
-            $price = $_POST['price'];
+            $product_name = htmlspecialchars($_POST['product_name']);
+            $price = htmlspecialchars($_POST['price']);
             $brand = ''; $size = ''; $color = '';
             $brand_value = $_POST['brand'];
             switch ($brand_value) {
