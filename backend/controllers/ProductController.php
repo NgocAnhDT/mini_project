@@ -27,11 +27,24 @@ class ProductController extends Controller {
 
     public function index() {
         $product_model = new Product();
-        $products = $product_model->listData();
         $amount = $product_model->amount();
+
+        // Phân trang
+        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 2;
+        $total_page = ceil($amount / $limit);
+        if ($current_page > $total_page){
+            $current_page = $total_page;
+        }
+        else if ($current_page < 1){
+            $current_page = 1;
+        }
+        $start = ($current_page - 1) * $limit;
+        $products = $product_model->listData($start, $limit);
+
         // - Gán thông tin cụ thể theo chức năng hiện tại
         $this->page_title = "Quản lý sản phẩm";
-        $this->content = $this->render('views/products/index.php', ['products' => $products, 'amount' => $amount]);
+        $this->content = $this->render('views/products/index.php', ['products' => $products, 'amount' => $amount, 'total_page' => $total_page, 'current_page' => $current_page]);
 
         // - Gọi layout để hiển thị các thông tin trên
         require_once 'views/layouts/main.php';
