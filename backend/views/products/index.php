@@ -26,4 +26,26 @@
             </div>
         <?php endforeach; ?>
     </div>
+    <div class="pagination">
+        <?php
+            if ($current_page > 1 && $total_page > 1){
+                echo '<a href="index.php?controller=product&action=index&page='.($current_page-1).'" class="btn btn-default"><</a> ';
+            }
+
+            for ($i = 1; $i <= $total_page; $i++){
+                // Nếu là trang hiện tại thì hiển thị thẻ span
+                // ngược lại hiển thị thẻ a
+                if ($i == $current_page){
+                    echo '<a href="index.php?controller=product&action=index&page='.$i.'" class="btn btn-warning">'.$i.'</a> ';
+                }
+                else{
+                    echo '<a href="index.php?controller=product&action=index&page='.$i.'" class="btn btn-default">'.$i.'</a> ';
+                }
+            }
+
+            if ($current_page < $total_page && $total_page > 1){
+                echo '<a href="index.php?controller=product&action=index&page='.($current_page+1).'" class="btn btn-default">></a>';
+            }
+        ?>
+    </div>
 </div>

@@ -26,10 +26,9 @@ class Product extends Model {
         return $obj_select_amount->fetchColumn();
     }
 
-    public function listData() {
-        $sql_select_all = "SELECT * FROM products";
+    public function listData($start, $limit) {
+        $sql_select_all = "SELECT * FROM products LIMIT $start, $limit";
         $obj_select_all = $this->connection->prepare($sql_select_all);
-
         $obj_select_all->execute();
         return $obj_select_all->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -68,4 +67,5 @@ class Product extends Model {
         ];
         return $obj_delete->execute($deletes);
     }
+
 }
