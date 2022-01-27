@@ -126,7 +126,7 @@ class ProductController extends Controller {
                         mkdir($dir_uploads);
                     }
                     // Tạo tên file upload mang tính duy nhất -> tránh file bị ghi đè khi trùng tên
-                    $product_image = time() . '-' . $this->convert_name($product_name);
+                    $product_image = time() . '-' . $this->convert_name($_FILES['product_image']['name']);
                     // Chuyển file từ thư mục tạm mà XAMPP đang lưu về thư mục đích
                     move_uploaded_file($_FILES['product_image']['tmp_name'], $dir_uploads . '/' . $product_image);
 
@@ -214,13 +214,7 @@ class ProductController extends Controller {
             }
             if (!isset($_POST['size'])){
                 $this->error['size'] = "Chưa chọn size giày!";
-            }
-            if (!isset($_POST['color'])){
-                $this->error['color'] = "Chưa chọn màu!";
-            }
-
-            // + Lưu vào CSDL chỉ khi nào ko có lỗi:
-            if (empty($this->error)) {
+            } else {
                 $size_value = $_POST['size'];
                 switch ($size_value) {
                     case 38: $size = 38; break;
@@ -228,7 +222,12 @@ class ProductController extends Controller {
                     case 40: $size = 40; break;
                     case 41: $size = 41; break;
                     case 42: $size = 42; break;
+                    default: $this->error['size'] = "Size vừa chọn không phù hợp!";
                 }
+            }
+            if (!isset($_POST['color'])){
+                $this->error['color'] = "Chưa chọn màu!";
+            } else {
                 $color_value = $_POST['color'];
                 switch ($color_value) {
                     case 0: $color = "Đỏ"; break;
@@ -236,15 +235,19 @@ class ProductController extends Controller {
                     case 2: $color = "Xanh lam"; break;
                     case 3: $color = "Xanh lá"; break;
                     case 4: $color = "Đen"; break;
+                    default: $this->error['color'] = "Màu vừa chọn không phù hợp!";
                 }
+            }
 
+            // + Lưu vào CSDL chỉ khi nào ko có lỗi:
+            if (empty($this->error)) {
                 $product_image = $product['product_img'];
                 if ($_FILES['product_image']['error'] == 0) {
                     $dir_uploads = 'assets/images/uploads';
                     if (!file_exists($dir_uploads)) {
                         mkdir($dir_uploads);
                     }
-                    $product_image = time() . '-' . $this->convert_name($product_name);
+                    $product_image = time() . '-' . $this->convert_name($_FILES['product_image']['name']);
                     // Chuyển file từ thư mục tạm mà XAMPP đang lưu về thư mục đích
                     move_uploaded_file($_FILES['product_image']['tmp_name'], $dir_uploads . '/' . $product_image);
                 }
