@@ -14,7 +14,7 @@ class UserController extends Controller {
             $row = $userModel->check_user($_COOKIE['username'], $_COOKIE['password']);
             if($row){
                 $_SESSION['logged'] = true;
-                $_SESSION['username'] = $username;
+                $_SESSION['username'] = $row['username'];
                 $_SESSION['fullname'] = $row['fullname'];
                 header("Location: index.php");
                 exit();
